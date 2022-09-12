@@ -3,10 +3,10 @@ require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 
-const {sequelize} = require('./util/db')
+const {sequelize} = require('./util/database')
 const {PORT} = process.env
-const {getAllPosts, getCurrentUserPosts, addPost, editPost, deletePost} = require('./controllers/posts')
-const {register, login} = require('./controllers/auth')
+const {getAllPosts, getCurrentUserPosts, addPost, editPost, deletePost} = require('./controller/posts')
+const {register, login} = require('./controller/auth')
 const {isAuthenticated} = require('./middleware/isAuthenticated')
 const {User} = require('./models/user')
 const {Post} = require('./models/post')
@@ -33,3 +33,4 @@ sequelize.sync({force:true})
     app.listen(PORT, () => console.log(`db sync successful & server running on port ${PORT}`))
 })
 .catch(err => console.log(err))
+

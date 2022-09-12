@@ -30,7 +30,7 @@ module.exports = {
           const hash = bcrypt.hashSync(password, salt)
           const newUser = await User.create({username, hashedPass: hash})
           const token = createToken(newUser.dataValues.username, newUser.dataValues.id)
-          console.log('THE TOKEN', token)
+          console.log('TOKEN', token)
           const exp= Date.now() + 1000 * 60 * 60 * 48
           res.status(200).send({
             username: newUser.dataValues.username,

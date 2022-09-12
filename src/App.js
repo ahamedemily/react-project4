@@ -23,11 +23,11 @@ const App = () => {
         />
         <Route
           path="/form"
-          element={!authCtx.token ? <Form /> : <Navigate to="/auth" />}
+          element={authCtx.token ? <Form /> : <Navigate to="/auth" />}
         />
         <Route
           path="/profile"
-          element={!authCtx.token ? <Profile /> : <Navigate to="/auth" />}
+          element={authCtx.token ? <Profile /> : <Navigate to="/auth" />}
         />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
